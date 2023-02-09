@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d3affbe-a226-42f4-a1ac-7bbfcece8a0d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../chap_01/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+    <list default="true" id="1d3affbe-a226-42f4-a1ac-7bbfcece8a0d" name="Changes" comment="[CHORE] 프로젝트 생성">
+      <change beforePath="$PROJECT_DIR$/../chap_01/app/src/main/java/com/example/chap_01/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../chap_01/app/src/main/java/com/example/chap_01/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap_01/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap_01/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/chap_02/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/chap_02/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\10017014\.android\avd\Pixel_2_API_29.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -20,6 +23,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2LUfyCpS4BkvEUipk8yl9gT37v0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -106,6 +112,29 @@
       <option name="presentableId" value="Default" />
       <updated>1675930834123</updated>
     </task>
+    <task id="LOCAL-00001" summary="[CHORE] 프로젝트 생성">
+      <created>1675930855768</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675930855768</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[CHORE] 프로젝트 생성" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CHORE] 프로젝트 생성" />
   </component>
 </project>
