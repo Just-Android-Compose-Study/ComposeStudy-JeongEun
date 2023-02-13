@@ -1,4 +1,4 @@
-package com.example.chap_02
+package com.example.chap_03
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,27 +10,34 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.chap_02.ui.theme.Chap_02Theme
+import com.example.chap_03.ui.theme.Chap_03Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Factorial()
+            Chap_03Theme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    Greeting("Android")
+                }
+            }
         }
     }
 }
 
 @Composable
-@Preview
-fun Factorial(){
-    var expanded by remem
+fun Greeting(name: String) {
+    Text(text = "Hello $name!")
 }
 
-fun factorialAsString(n: Int): String{
-    var result = 1L
-    for (i in 1..n){
-        result *= i
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    Chap_03Theme {
+        Greeting("Android")
     }
-    return "$n! = $result"
 }
