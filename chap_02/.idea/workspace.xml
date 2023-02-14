@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8961ce-9db2-4457-80f5-f6bbd4f7e25a" name="Changes" comment="[CHORE] 프로젝트 생성">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/chap_02/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/chap_02/MainActivity.kt" afterDir="false" />
-    </list>
+    <list default="true" id="4b8961ce-9db2-4457-80f5-f6bbd4f7e25a" name="Changes" comment="[FEAT] Factorial 실습" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676273259470</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[FEAT] Factorial 실습">
+      <created>1676353476660</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676353476660</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,6 +138,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[CHORE] 프로젝트 생성" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CHORE] 프로젝트 생성" />
+    <MESSAGE value="[FEAT] Factorial 실습" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FEAT] Factorial 실습" />
   </component>
 </project>

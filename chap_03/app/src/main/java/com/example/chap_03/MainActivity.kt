@@ -14,7 +14,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.DrawModifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -28,6 +31,7 @@ class MainActivity : ComponentActivity() {
             BoxWithConstraints(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier.fillMaxSize()
+                    .drawYellowCross()
             ) {
                 Column(
                     modifier = Modifier.width(min(400.dp, maxWidth)),
@@ -74,8 +78,29 @@ fun ColorPicker(color: MutableState<Color>) {
     }
 }
 
+fun Modifier.drawYellowCross() = then(
+    object : DrawModifier {
+        override fun ContentDrawScope.draw() {
+            drawLine(
+                color = Color.Yellow,
+                start = Offset(0F, 0F),
+                end = Offset(size.width - 1, size.height - 1),
+                strokeWidth = 10F
+            )
+            drawLine(
+                color = Color.Yellow,
+                start = Offset(0F, size.height - 1),
+                end = Offset(size.width - 1, 0F),
+                strokeWidth = 10F
+            )
+            drawContent()
+        }
+    }
+)
+
 fun Color.complementary() = Color(
     red = 1F - red,
     green = 1F - green,
     blue = 1F - blue
 )
+
