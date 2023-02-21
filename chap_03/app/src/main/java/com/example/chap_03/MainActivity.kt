@@ -1,10 +1,13 @@
 package com.example.chap_03
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Slider
 import androidx.compose.material.Text
@@ -19,6 +22,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -28,9 +32,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
+
             BoxWithConstraints(
+
                 contentAlignment = Alignment.Center,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .drawYellowCross()
             ) {
                 Column(
@@ -52,6 +60,14 @@ class MainActivity : ComponentActivity() {
                         )
                     )
                 }
+            }
+
+            TextWithWarning1("", Modifier.background(Color.Blue)) {
+            }
+            TextWithWarning3(
+                Modifier
+                    .background(Color.Blue)
+                    .padding(79.dp)) {
             }
         }
     }
@@ -103,4 +119,85 @@ fun Color.complementary() = Color(
     green = 1F - green,
     blue = 1F - blue
 )
+
+
+@Composable
+fun TextWithWarning1(
+
+    name: String = "Default",
+    modifier: Modifier = Modifier,
+
+    callback: () -> Unit
+) {
+    Text(text = "TextWithWarning1 $name!", modifier = modifier
+        .background(Color.Yellow)
+        .clickable { callback.invoke() })
+}
+
+@Composable
+fun TextWithWarning3(
+    modifier: Modifier = Modifier,
+    name: String = "Default",
+    callback: () -> Unit
+) {
+    Column() {
+        Text(
+            text = "TextWithWarning1 $name!",
+            modifier = modifier
+                .background(Color.Yellow)
+                .padding(12.dp)
+                .clickable { callback.invoke() })
+
+        Text(
+            text = "TextWithWarning1 $name!",
+            modifier = modifier
+        )
+    }
+}
+
+
+@Composable
+fun TextWithWarning4(
+    modifier: Modifier = Modifier,
+    name: String,
+
+    callback: () -> Unit
+) {
+    Text(text = "TextWithWarning1 $name!", modifier = modifier
+        .background(Color.Yellow)
+        .clickable { callback.invoke() })
+}
+
+@Composable
+fun TextWithWarning2(test: Modifier = Modifier, name: String = "", callback: () -> Unit) {
+    Text(text = "TextWithWarning2 $name!", modifier = test
+        .background(Color.Yellow)
+        .clickable { callback.invoke() })
+}
+
+@Composable
+fun TextWithoutWarning(
+    modifier: Modifier = Modifier,
+    buttonModifier: Modifier,
+    name: String = "",
+    callback: () -> Unit
+) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(text = "TextWithoutWarning $name!", modifier = modifier
+            .padding(10.dp) // margin concept
+            .background(Color.Yellow)
+            .padding(10.dp) // real padding
+            .clickable { callback.invoke() })
+
+        val context = LocalContext.current
+        Button(
+            modifier = buttonModifier.clickable {
+                Toast.makeText(context, "버튼에 clickable을 넣으면?", Toast.LENGTH_SHORT).show()
+            },
+            onClick = { Toast.makeText(context, "버튼 클릭됨", Toast.LENGTH_SHORT).show() }) {
+            Text("버튼")
+        }
+    }
+}
+
 
