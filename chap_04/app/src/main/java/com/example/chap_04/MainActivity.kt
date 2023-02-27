@@ -25,17 +25,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import androidx.constraintlayout.compose.atLeast
 import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            //PredefinedLayoutDemo()
+        setContent {LargeConstraintLayout1()
+            PredefinedLayoutDemo()
             //ConstraintLayoutDemo()
-            ConstraintLayoutDemo()
+            //ConstraintLayoutDemo()
             //CustomLayoutDemo()
-
         }
     }
 }
@@ -62,7 +62,6 @@ fun CheckboxWithLabel(label: String, state: MutableState<Boolean>) {
 }
 
 @Composable
-@Preview
 fun PredefinedLayoutDemo() {
     val red = remember { mutableStateOf(true) }
     val green = remember { mutableStateOf(true) }
@@ -232,7 +231,6 @@ fun ConstraintLayoutDemo() {
 
 // TODO : 실습3
 @Composable
-@Preview
 fun ColumnWithText(){
     Column {
         Text(
@@ -273,7 +271,6 @@ private fun randomColor() = when(randomInt123()){
 }
 
 @Composable
-@Preview
 fun CustomLayoutDemo(){
     SimpleFlexBox {
         for (i in 0..42){
@@ -322,5 +319,22 @@ private fun simpleFlexboxMeasurePolicy(): MeasurePolicy = MeasurePolicy {measure
                 maxY = placeable.height
             }
         }
+    }
+}
+
+@Composable
+@Preview
+fun LargeConstraintLayout1() {
+    ConstraintLayout(modifier = Modifier.height(100.dp).width(400.dp)) {
+        val text = createRef()
+
+        val guideline = createGuidelineFromStart(fraction = 0f)
+        Text(
+            "This is a very very very very very very very long text",
+            Modifier.constrainAs(text) {
+                linkTo(start = guideline, end = parent.end)
+                width = Dimension.value(300.dp)
+            }
+        )
     }
 }
