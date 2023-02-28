@@ -8,6 +8,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,6 +18,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.chap_05.ui.theme.Chap_05Theme
 import java.util.*
 import kotlin.random.Random
@@ -29,7 +34,6 @@ class MainActivity : ComponentActivity() {
 //            RememberObserver()
 //            SimpleStatelessComposable1()
 //            FlowOfEventsDemo()
-            RememberSaveable()
         }
     }
 }
@@ -228,14 +232,62 @@ fun FlowOfEventsDemo() {
 }
 
 
-// TODO : rememberSaveable
+// TODO : viewModel
+
+class MyViewModel : ViewModel() {
+
+    private val _text: MutableLiveData<String> =
+        MutableLiveData<String>("Hello #3")
+
+    val text: LiveData<String>
+        get() = _text
+
+    fun setText(value: String) {
+        _text.value = value
+    }
+}
+
+class ViewModelDemoActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ViewModelDemo()
+        }
+    }
+}
+
 @Composable
 @Preview
-fun RememberSaveable() {
+fun ViewModelDemo() {
+    val viewModel: MyViewModel = viewModel()
     val state1 = remember {
         mutableStateOf("Hello #1")
     }
     val state2 = rememberSaveable {
         mutableStateOf("Hello #2")
+    }
+    val state3 = viewModel.text.observeAsState() // 반환타입 : State<String?> => MyTextField의 value 파라미터가 State<String?>타입
+    state3.value?.let {
+        Column(modifier = Modifier.fillMaxWidth()) {
+            MyTextField(state1) { state1.value = it }
+            MyTextField(state2) { state2.value = it }
+            MyTextField(state3) {
+                viewModel.setText(it) // 변경사항 반영
+            }
+        }
+    }
+}
+
+@Composable
+fun MyTextField(
+    value: State<String?>,
+    onValueChange: (String) -> Unit
+) {
+    value.value?.let {
+        TextField(
+            value = it,
+            onValueChange = onValueChange,
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
