@@ -8,6 +8,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -27,7 +28,8 @@ class MainActivity : ComponentActivity() {
 //            SimpleStateDemo1()
 //            RememberObserver()
 //            SimpleStatelessComposable1()
-            FlowOfEventsDemo()
+//            FlowOfEventsDemo()
+            RememberSaveable()
         }
     }
 }
@@ -69,6 +71,8 @@ fun SimpleStatelessComposable2(text: State<String>) {
     Text(text = text.value)
 }
 
+
+// TODO : 섭씨 화씨 변환 예제
 // stateless
 @Composable
 fun TextFieldDemo(state: MutableState<TextFieldValue>) {
@@ -220,5 +224,18 @@ fun FlowOfEventsDemo() {
                 style = MaterialTheme.typography.body1
             )
         }
+    }
+}
+
+
+// TODO : rememberSaveable
+@Composable
+@Preview
+fun RememberSaveable() {
+    val state1 = remember {
+        mutableStateOf("Hello #1")
+    }
+    val state2 = rememberSaveable {
+        mutableStateOf("Hello #2")
     }
 }
