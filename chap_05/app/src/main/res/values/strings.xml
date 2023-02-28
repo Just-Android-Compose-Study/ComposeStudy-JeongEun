@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">chap_05</string>
+    <string name="celsius">C</string>
+    <string name="fahrenheit">F</string>
+    <string name="convert">변환</string>
+
+
 </resources>
