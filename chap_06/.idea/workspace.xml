@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d6458d8-3cb7-403e-a5ab-03f9d0c18595" name="Changes" comment="" />
+    <list default="true" id="7d6458d8-3cb7-403e-a5ab-03f9d0c18595" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PracBottomNavigation/app/src/main/java/com/example/pracbottomnavigation/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PracBottomNavigation/app/src/main/java/com/example/pracbottomnavigation/MainActivity.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
